@@ -25,7 +25,7 @@ function getCategory(name) {
         datatype: 'json',
         async: false,
         success:function(data){
-            
+
             console.log("in getcat"+ JSON.stringify(data))
             ret["cat"]=data;
         }});
@@ -55,6 +55,8 @@ function getCategoryContent(name,category) {
     $.ajax({
         url: "http://piedp.herokuapp.com/categorycontent",
         data :{
+			"name":"KFC",
+			"category":"Chicken	"
             // "name": getRestaurants(),
             // "category":getCategory(name)
         },
@@ -88,5 +90,3 @@ function getPrice(name,item) {
 	});
 	return price;
 };
-
-
