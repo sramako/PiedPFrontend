@@ -67,6 +67,11 @@ createUI = function() {
 	setTotal();
 }
 
+badge = function() {
+	// console.log("Cart badge updated");
+	$('#cart_badge').text(cartSize());
+}
+
 createCounter = function() {
 	return "\<td\>\<form id=\"incrementor\"\> \<div class=\"value-button\" id=\"decrease\" onclick=\"decreaseValue(event)\" value=\"Decrease Value\"\>-\</div\><input type=\"number\" id=\"number\" value=\"0\" /> \<div class=\"value-button\" id=\"increase\" onclick=\"increaseValue(event)\" value=\"Increase Value\"\>+\</div\>\</form\>\</td\>"
 }
@@ -159,3 +164,12 @@ removeFromCart = function(item) {
 	}
 	localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+cartSize = function() {
+	var cart = JSON.parse(localStorage.getItem('cart'));
+	// console.log(cart);
+	// console.log(Object.keys(cart).length);
+	return Object.keys(cart).length-1;
+}
+
+setInterval(badge,1000);

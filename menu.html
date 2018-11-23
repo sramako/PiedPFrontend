@@ -184,14 +184,14 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/sweetalert.min.js"></script>
         <script src="js/angular.min.js"></script>
-        
+
 
 
 		<!-- CUSTOM MODULES -->
 		<script src="js/session.js"></script>
 		<script src="js/ajax.js"></script>
 		<script src="js/cart.js"></script>
-		
+
 		<script type="text/javascript">
 			//Type code here
 		</script>
@@ -224,11 +224,11 @@
 		        </a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link disabled" href="#">
+		        <a class="nav-link" href="#">
 		          <i class="fa fa-envelope-o">
-		            <span class="badge badge-danger">11</span>
+		            <span id="cart_badge" class="badge badge-danger">11</span>
 		          </i>
-		          Disabled
+		          Cart
 		        </a>
 		      </li>
 		    </ul>
@@ -244,8 +244,8 @@
             <div class="col-xs-6">
                 <img src="images/KFC.jpeg" style="height:250px; margin-left:30px;" />
             </div>
-            <div class="col-xs-6">  
-                
+            <div class="col-xs-6">
+
                 <br/>
                 <h1>KFC</h1>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -272,19 +272,19 @@
         temp_new = temp_new.split('"').join('');
         var array = temp_new.split(",").map(String);
         console.log("in cat"+" "+array.length);
-        
-            
+
+
         con = getCategoryContent(name,array[0]);
         temp_new=con.substr(1).slice(0,-1);
         temp_new = temp_new.split('"').join('');
         var array2 = temp_new.split(",").map(String);
         console.log(array2[0].split(":")[0]);
-        
+
 
 
         // cat = document.getElementById("1");
         // cat.innerHTML = array[0];
-        
+
         // var x = document.getElementById("tbl").rows[0].cells;
 
         // x[0].innerHTML=array2[0].split(":")[0];
@@ -305,7 +305,7 @@
             var th4 = document.createElement('th');
             th4.setAttribute('style', 'text-align:center');
 
-            
+
             th1.appendChild(document.createTextNode("Item"));
             th1.setAttribute('colSpan', '2');
             th1.setAttribute('style', 'text-align:center');
@@ -341,7 +341,7 @@
                             td2.setAttribute('style', 'text-align:center');
                             var td3 = document.createElement('td');
                             td3.setAttribute('style', 'text-align:center');
-                            
+
                             var td4 = document.createElement('input');
                             td4.setAttribute('type', 'button');
                             // td4.setAttribute('id', item);
@@ -350,7 +350,7 @@
                             td4.setAttribute('class',"btn btn-success");
                             td4.setAttribute('style', 'float:right');
                             td4.setAttribute('style', 'position:absolute');
-                            
+
                             // td4.setAttribute('colSpan', '2');
 
                             td2.appendChild(document.createTextNode(item));
