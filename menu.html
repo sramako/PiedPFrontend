@@ -285,7 +285,14 @@
       
         </div>
         <!-- Collapsible content -->
-      
+        <script>
+                angular.module("notesApp",[]).controller("MainCtrl",function($scope){
+                $scope.restaurant = getRestaurants();
+                $scope.cat = getCategory();
+                $scope.menu = getMenu();
+                $scope.catcontent = getCategoryContent();
+                });
+            </script>
       </nav>
       <!--/.Navbar-->
         </div>
