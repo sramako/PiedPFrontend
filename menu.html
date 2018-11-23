@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" ng-app="notesApp">
+<html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
 		<title></title>
@@ -196,7 +196,7 @@
 			//Type code here
 		</script>
 	</head>
-	<body ng-controller="MainCtrl as ctrl">
+	<body>
 
 		<!-- Navbar -->
 
@@ -262,37 +262,52 @@
             <br/>
             <h3>Menu</h3>
             <!--Navbar-->
-<nav class="navbar navbar-light navbar-inverse amber lighten-4 mb-4">
-
-        <!-- Navbar brand -->
-        <a class="navbar-brand" href="#" ng-repeat="x in cat">{{x}}</a>
-      
-        <!-- Collapse button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
-          aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
-          <div class="animated-icon1"><span></span><span></span><span></span></div>
-        </button>
-      
-        <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent20">
-      
-          <!-- Links -->
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#" ng-repeat="y in catcontent">{{y}} </a>
-            </li>
-          </ul>
-          <!-- Links -->
-      
-        </div>
-        <!-- Collapsible content -->
+            <div class="container">
+            <div class="panel panel-primary" id="main">
+                    <div class="panel-heading" id ="cat">hi</div>
+                    <div class="panel-body" id="catcont">heelo</div>
+            </div>
+              
         <script>
-                angular.module("notesApp",[]).controller("MainCtrl",function($scope){
-                $scope.restaurant = getRestaurants();
-                $scope.cat = getCategory();
-                $scope.menu = getMenu();
-                $scope.catcontent = getCategoryContent();
-        });
+        //         angular.module("notesApp",[]).controller("MainCtrl",function($scope){
+        //         $scope.restaurant = getName();
+        //         // console.log("in menu_rest"+$scope.restaurant);
+        //         name=getName();
+        //         temp = getCategory(name);
+        //         temp_new=temp.substr(1).slice(0,-1);
+        //         temp_new = temp_new.split('"').join('');
+        //         var array = temp_new.split(",").map(String);
+        //         //temp=list(temp);
+        //         //.log(temp);
+        //         $scope.cat=array;
+        //         // console.log("in menu"+$scope.cat);  
+        //         $scope.menu = getMenu(name); 
+        //         // $scope.catcontent = getCategoryContent(name,temp);
+        // });
+        name=getName();
+        console.log("name"+name);
+        temp = getCategory(name);
+        temp_new=temp.substr(1).slice(0,-1);
+        temp_new = temp_new.split('"').join('');
+        var array = temp_new.split(",").map(String);
+        console.log("in cat"+" "+array.length);
+        main= document.getElementById("main");
+        for(i=0;i<array.length;i++)
+        {
+            var a=document.createElement("div");
+            a.setAttribute("class","panel-heading");
+            a.setAttribute("id",cat+i);
+            a.innerHTML=array[i];
+            main.append(a);
+            con = getCategoryContent(name,array[0]);
+            var a=document.createElement("div");
+            a.setAttribute("class","panel-body");
+            a.setAttribute("id",catcont+i);
+            a.innerHTML=con;
+            main.append(a);    
+        }
+        
+
             </script>
       </nav>
       <!--/.Navbar-->

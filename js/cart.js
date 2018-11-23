@@ -43,6 +43,9 @@ getName = function() {
 
 setName = function(name) {
 	var cart = JSON.parse(localStorage.getItem('cart'));
+	if (cart==null) {
+		cart = new Object();
+	}
 	cart["name"] = name;
 	localStorage.setItem('cart', JSON.stringify(cart));
 }
