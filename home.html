@@ -14,6 +14,14 @@
 
 		<script type="text/javascript">
 		// create image
+				u=getCookie("user");
+				if(u!=null){
+						document.getElementById("login_disp").style.visibility = "hidden";
+						document.getElementById("logged_in_disp").value += u;
+				}
+				else{
+					document.getElementById("logged_in_disp").style.visibility = "hidden";
+				}
 				restaurants = ['KFC','Taj']
 				for(var restaurant in restaurants){
 								var img = new Image();
@@ -63,10 +71,14 @@
 		          Disabled
 		        </a>
 		      </li>
-		      <li class="nav-item">
+					<!-- if cookie exists no login -->
+		      <li class="nav-item" id="login_disp">
 							<a class="nav-link" href="https://sramako.github.io/PiedPFrontend/login.html">
 			          Login
 			        </a>
+					</li>
+					<li class="nav-item" id="logged_in_disp">
+							welcome
 					</li>
 					<li class="nav-item">
 							<a class="nav-link" href="https://sramako.github.io/PiedPFrontend/AddRestaurant.html">
