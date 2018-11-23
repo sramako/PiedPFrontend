@@ -34,6 +34,19 @@ cartTotal = function() {
 	return total.toFixed(2);
 }
 
+
+
+getName = function() {
+	var cart = JSON.parse(localStorage.getItem('cart'));
+	return cart["name"];
+}
+
+setName = function(name) {
+	var cart = JSON.parse(localStorage.getItem('cart'));
+	cart["name"] = name;
+	localStorage.setItem('cart', JSON.stringify(cart));
+}
+
 // UI Functionalities
 
 createUI = function() {
