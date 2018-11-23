@@ -11,6 +11,7 @@
 		<script src="js/sweetalert.min.js"></script>
 		<script src="js/angular.min.js"></script>
 		<script src="js/session.js"></script>
+		<script src="js/cart.js"></script>
 
 		<script type="text/javascript">
 		// create image
@@ -66,24 +67,13 @@
 		        </a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link disabled" href="#">
+		        <a class="nav-link" href="#">
 		          <i class="fa fa-envelope-o">
-		            <span class="badge badge-danger">11</span>
+		            <span id="cart_badge" class="badge badge-danger">11</span>
 		          </i>
-		          Disabled
+		          Cart
 		        </a>
 		      </li>
-					<!-- if cookie exists no login -->
-		      <li class="nav-item">
-							<a class="nav-link" href="https://sramako.github.io/PiedPFrontend/login.html" id="login_disp">
-			          Login
-			        </a>
-					</li>
-					<li class="nav-item">
-							<a class="nav-link" href="https://sramako.github.io/PiedPFrontend/AddRestaurant.html">
-			          Click here to add a new restaurant
-			        </a>
-					</li>
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
 		      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -91,6 +81,7 @@
 		    </form>
 		  </div>
 		</nav>
+
 		<!-- Navbar End -->
 
 		<!-- courousel for "restaurants near you" -->

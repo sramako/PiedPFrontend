@@ -184,14 +184,14 @@
 		<script src="js/bootstrap.js"></script>
 		<script src="js/sweetalert.min.js"></script>
         <script src="js/angular.min.js"></script>
-        
+
 
 
 		<!-- CUSTOM MODULES -->
 		<script src="js/session.js"></script>
 		<script src="js/ajax.js"></script>
 		<script src="js/cart.js"></script>
-		
+
 		<script type="text/javascript">
 			//Type code here
 		</script>
@@ -224,11 +224,11 @@
 		        </a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link disabled" href="#">
+		        <a class="nav-link" href="#">
 		          <i class="fa fa-envelope-o">
-		            <span class="badge badge-danger">11</span>
+		            <span id="cart_badge" class="badge badge-danger">11</span>
 		          </i>
-		          Disabled
+		          Cart
 		        </a>
 		      </li>
 		    </ul>
@@ -244,8 +244,8 @@
             <div class="col-xs-6">
                 <img src="images/KFC.jpeg" style="height:250px; margin-left:30px;" />
             </div>
-            <div class="col-xs-6">  
-                
+            <div class="col-xs-6">
+
                 <br/>
                 <h1>KFC</h1>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -267,7 +267,7 @@
                     <div class="panel-heading" id ="cat">hi</div>
                     <div class="panel-body" id="catcont">heelo</div>
             </div>
-              
+
         <script>
         //         angular.module("notesApp",[]).controller("MainCtrl",function($scope){
         //         $scope.restaurant = getName();
@@ -280,8 +280,8 @@
         //         //temp=list(temp);
         //         //.log(temp);
         //         $scope.cat=array;
-        //         // console.log("in menu"+$scope.cat);  
-        //         $scope.menu = getMenu(name); 
+        //         // console.log("in menu"+$scope.cat);
+        //         $scope.menu = getMenu(name);
         //         // $scope.catcontent = getCategoryContent(name,temp);
         // });
         name=getName();
@@ -304,9 +304,9 @@
             a.setAttribute("class","panel-body");
             a.setAttribute("id",catcont+i);
             a.innerHTML=con;
-            main.append(a);    
+            main.append(a);
         }
-        
+
 
             </script>
       </nav>
