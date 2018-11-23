@@ -55,8 +55,8 @@ function getCategoryContent(name,category) {
     $.ajax({
         url: "http://piedp.herokuapp.com/categorycontent",
         data :{
-			"name":"KFC",
-			"category":"Chicken	"
+			"name":name,
+			"category":category
             // "name": getRestaurants(),
             // "category":getCategory(name)
         },
