@@ -52,19 +52,19 @@ addRestaurant = function(e) {
   sub_obj['price']=document.getElementById('submenu_3_price_2').value;
   obj1['items'].push(sub_obj);
   var sub_obj={};
-  sub_obj['price']=document.getElementById('submenu_3_price_3').value;
   sub_obj['name']=document.getElementById('submenu_3_item_3').value;
+  sub_obj['price']=document.getElementById('submenu_3_price_3').value;
   obj1['items'].push(sub_obj);
   menu.push(obj3);
 
-  obj['menu']=menu;
+  obj['Menu']=menu;
 
   console.log(obj);
   alert("uploading now");
 	$.ajax({
       type: "POST",
       contentType: "application/json",
-	    url: "http://localhost:5000/addRestaurant",
+	    url: "https://piedp.herokuapp.com/addRestaurant",
 	    dataType: 'json',
 	    data:JSON.stringify(obj)
 	});

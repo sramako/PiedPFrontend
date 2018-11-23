@@ -26,7 +26,7 @@
       $('#Loginform').ajaxForm({
             type: "POST",
             contentType: "application/x-www-form-urlencoded",
-            url : "http://localhost:5000/login",
+            url : "https://piedp.herokuapp.com/login",
             success : function (response){
                 alert("The server says: " + response);
             }
@@ -95,7 +95,7 @@
                   </label>
                 </div>
               </div>
-              <a href="http://0.0.0.0:7000/signUp.html"> Sign Up?</a>
+              <a href="https://sramako.github.io/PiedPFrontend/signUp.html"> Sign Up?</a>
               <br>
               <input type="submit" class="btn btn-primary" value="Log-In"/>
           </form>
