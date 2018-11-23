@@ -70,4 +70,5 @@ getPrice = function(name,item) {
 	    }
 	});
 	return price;
-}
+};
+
