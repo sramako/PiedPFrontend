@@ -64,7 +64,7 @@ addRestaurant = function(e) {
 	$.ajax({
       type: "POST",
       contentType: "application/json",
-	    url: "http://localhost:5000/addRestaurant",
+	    url: "https://piedp.herokuapp.com/addRestaurant",
 	    dataType: 'json',
 	    data:JSON.stringify(obj)
 	});
