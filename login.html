@@ -20,17 +20,33 @@
 		<script src="js/session.js"></script>
 		<script src="js/ajax.js"></script>
 		<script src="js/cart.js"></script>
-    <script src="http://malsup.github.com/jquery.form.js"></script>
 		<script type="text/javascript">
 			//Type code here
-      $('#Loginform').ajaxForm({
-            type: "POST",
-            contentType: "application/x-www-form-urlencoded",
-            url : "https://piedp.herokuapp.com/login",
-            success : function (response){
-                alert("The server says: " + response);
-            }
-    });
+			function make_call(){
+					alert("checking")
+					var obj = {};
+					obj['username']=document.getElementById("username").value;
+					obj['password']=document.getElementById("password").value;
+					alert("got_obj")
+					$.ajax({
+				      type: "POST",
+				      contentType: "application/json",
+					    url: "https://piedp.herokuapp.com/login",
+					    dataType: 'json',
+					    data:JSON.stringify(obj),
+							complete: function (data) {
+										if(data.responseText=='Success'){
+											//make setcookie and navigate to home.html
+											setCookie("user",obj['username'],1);
+											window.location.href="https://sramako.github.io/PiedPFrontend/home.html"
+										}
+										else{
+												alert('something went wrong enter again');
+										}
+  						}
+					});
+					alert("done")
+			}
 		</script>
 	</head>
 	<body>
@@ -78,14 +94,14 @@
 		<!-- Navbar End -->
 
     <!-- form to login/sign_i -->
-        <form style="position:relative;top:20px;left:20px;width: 700px;margin: 0 auto;" id="Loginform">
+        <form style="position:relative;top:20px;left:20px;width: 700px;margin: 0 auto;">
                 <div class="form-row">
                   <label> Username </label>
                   <input type="text" class="form-control" id="username"/>
                 </div>
               <div class="form-row">
                   <label> Password </label>
-                  <input type="text" class="form-control" id="password">
+                  <input type="text" class="form-control" id="password"/>
               </div>
               <div class="form-group">
                 <div class="form-check">
@@ -97,7 +113,7 @@
               </div>
               <a href="https://sramako.github.io/PiedPFrontend/signUp.html"> Sign Up?</a>
               <br>
-              <input type="submit" class="btn btn-primary" value="Log-In"/>
+              <input type="button" onclick="make_call()" class="btn btn-primary" value="Log-In"/>
           </form>
 	</body>
 </html>

@@ -65,6 +65,7 @@
 .modal-footer {
     padding: 2px 16px;
 	padding-top: 16px;
+	height: 100px;
     background-color: #242020;
     color: white;
 }
