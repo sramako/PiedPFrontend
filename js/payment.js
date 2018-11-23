@@ -26,6 +26,17 @@ success = function() {
 	var success="<div class='check_mark'><div class='sa-icon sa-success animate'><span class='sa-line sa-tip animateSuccessTip'></span><span class='sa-line sa-long animateSuccessLong'></span><div class='sa-placeholder'></div><div class='sa-fix'></div></div></div>"
 	$(".modal-body").empty();
 	$(".modal-body").append(success);
+	$(".modal-footer").append("<button type='button' class='btn btn-danger btn-lg' id='done' onclick=''>Go to Order</button>")
+	$(".modal-footer").css('padding-top','1px');
+	var cart = JSON.parse(localStorage.getItem('cart'));
+	var order = cart;
+	order["user"] = "Sraman";
+	order["lat"] = myLocation.x;
+	order["long"] = myLocation.y;
+	console.log(JSON.stringify(order));
+	$.post("http://localhost:5000/order",JSON.stringify(order),function(data){
+		console.log(JSON.stringify(data));
+	});
 }
 
 time = 1000;
