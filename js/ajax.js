@@ -1,5 +1,5 @@
 getRestaurants = function() {
-    $.get("http://localhost:5000/restaurants",
+    $.get("https://piedp.herokuapp.com/restaurants",
         {
         },
         false,
@@ -8,10 +8,10 @@ getRestaurants = function() {
             return data;
         });
         
-}
+};
 
 getCategory = function(name) {
-    $.get("http://localhost:5000/category",
+    $.get("https://piedp.herokuapp.com/category",
         {
             "name": getRestaurants()
         },
@@ -20,12 +20,12 @@ getCategory = function(name) {
             console.log(data)
             return data;
         });
-}
+};
 
 getMenu = function(name) {
 
-}
+};
 
 getCategoryContent = function(name,category) {
 
-}
+};
