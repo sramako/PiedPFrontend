@@ -7,7 +7,7 @@ getRestaurants = function() {
             console.log(JSON.stringify(data));
             return data;
         });
-        
+
 };
 
 getCategory = function(name) {
@@ -35,7 +35,7 @@ getMenu = function(name) {
             return data;
         });
 
-    
+
 };
 
 getCategoryContent = function(name,category) {
@@ -71,4 +71,3 @@ getPrice = function(name,item) {
 	});
 	return price;
 };
-

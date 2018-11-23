@@ -10,6 +10,10 @@
 
 
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/modal.css">
+		<link rel="stylesheet" type="text/css" href="css/loader.css">
+		<link rel="stylesheet" type="text/css" href="css/success.css">
+
 
 		<style media="screen">
 			#incrementor {
@@ -114,6 +118,7 @@
 		<script src="js/session.js"></script>
 		<script src="js/cart.js"></script>
 		<script src="js/map.js"></script>
+		<script src="js/payment.js"></script>
 
 
 
@@ -184,33 +189,35 @@
 					<p id="price">Calculating Total Price</p>
 				  </div>
 				  <div class="col-sm-6" style="text-align:right;">
-					<p><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Checkout Cart</button></p>
+					<p><button type="button" class="btn btn-danger btn-lg" id="checkout" onclick="showModal()">Checkout Cart</button></p>
 				  </div>
 			  </div>
 		  </div>
 		</div>
+		<!-- onclick="setMap(myLocation.x, myLocation.y)" -->
 
 		<!-- End Footer -->
 
 		<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog modal-lg">
-			  <div class="modal-content">
-			    <div class="modal-header">
-					<h4 class="modal-title">Modal Header</h4>
-			      <button type="button" class="close" data-dismiss="modal">&times;</button>
-			    </div>
-			    <div class="modal-body">
-			      <p>
-					  <div id="mapid" style="width: 600px; height: 400px; position: relative;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"></div>
-				  </p>
-			    </div>
-			    <div class="modal-footer">
-			      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="setMap(myLocation.x, myLocation.y);">Close</button>
-			    </div>
-			  </div>
-			</div>
-			</div>
+		<div id="myModal" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+				<h2>Checkout</h2>
+		      <span class="close">&times;</span>
+		    </div>
+		    <div class="modal-body">
+		      <p>
+				  <div id="mapid" style="width: 600px; height: 400px; position: relative;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"></div>
+			  </p>
+		      <p>Your Location</p>
+		    </div>
+		    <div class="modal-footer">
+				<p><button type="button" class="btn btn-danger btn-lg" id="payment" onclick="pay()">Pay Now</button></p>
+		    </div>
+		  </div>
+
 		</div>
 		<!-- End Modal -->
 	</body>
@@ -218,5 +225,6 @@
 	<script type="text/javascript">
 
 	</script>
+	<script src="js/modal.js"></script>
 
 </html>

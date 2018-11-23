@@ -43,7 +43,7 @@ function getLocation() {
 myLocation = new Object();
 
 function showPosition(position) {
-    alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
+    // alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
 	// setMap(position.coords.latitude, position.coords.longitude);
 	myLocation.x = position.coords.latitude;
 	myLocation.y = position.coords.longitude;
