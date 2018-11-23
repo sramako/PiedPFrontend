@@ -1,59 +1,76 @@
-getRestaurants = function() {
-    $.get("https://piedp.herokuapp.com/restaurants",
-        {
+function getRestaurants() {
+    ret = new Object();
+    $.ajax({
+        url: "https://piedp.herokuapp.com/restaurants",
+        data:{
         },
-        false,
-        function(data){
-            console.log(JSON.stringify(data));
-            return data;
-        });
-        
+        // datatype: 'json',
+        async: false,
+        success: function(data){
+            console.log("in rest"+JSON.stringify(data));
+            ret["data"]=JSON.stringify(data);
+            // return JSON.stringify(data);
+        }});
+        return ret["data"];
 };
 
-getCategory = function(name) {
-    $.get("https://piedp.herokuapp.com/category",
-        {
-            "name": getRestaurants()
+function getCategory(name) {
+    // var name = getRestaurants();
+    ret=new Object();
+    $.ajax({
+        url : "https://piedp.herokuapp.com/category",
+        data :{
+            "name": name
         },
-        false,
-        function(data){
-            console.log(data)
-            return data;
-        });
+        datatype: 'json',
+        async: false,
+        success:function(data){
+            
+            console.log("in getcat"+ JSON.stringify(data))
+            ret["cat"]=data;
+        }});
+        return ret["cat"];
 };
 
-getMenu = function(name) {
-    $.get("https://piedp.herokuapp.com/menu",
-        {
+function getMenu(name) {
+    ret= new Object();
+    $.ajax({
+        url: "http://piedp.herokuapp.com/menu",
+        data: {
             "name": getRestaurants()
         },
-        false,
-        function(data){
+        async:false,
+        datatype: 'json',
+        success: function(data){
             console.log(data)
             // name=data
             // console.log(name)
-            return data;
-        });
-
-    
+            ret["menu"]=data;
+        }});
+        return ret["menu"];
 };
 
-getCategoryContent = function(name,category) {
-    $.get("https://piedp.herokuapp.com/categorycontent",
-    {
-        "name": getRestaurants(),
-        "category":getCategory(name)
-    },
-    false,
-    function(data){
-        console.log(data)
-        // name=data
-        // console.log(name)
-        return data;
-    });
+function getCategoryContent(name,category) {
+    ret=new Object();
+    $.ajax({
+        url: "http://piedp.herokuapp.com/categorycontent",
+        data :{
+            // "name": getRestaurants(),
+            // "category":getCategory(name)
+        },
+        datatype: 'json',
+        async: false,
+        success: function(data){
+            console.log(data)
+            // name=data
+            // console.log(name)
+            ret["content"]=data;
+            console.log(data);
+        }});
+        return ret["content"];
 };
 
-getPrice = function(name,item) {
+function getPrice(name,item) {
 	var price=0;
 	$.ajax({
 	    url: "https://piedp.herokuapp.com/price",
@@ -71,4 +88,5 @@ getPrice = function(name,item) {
 	});
 	return price;
 };
+
 
