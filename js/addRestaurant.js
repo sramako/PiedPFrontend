@@ -46,15 +46,15 @@ addRestaurant = function(e) {
   var sub_obj={};
   sub_obj['name']=document.getElementById('submenu_3_item_1').value;
   sub_obj['price']=document.getElementById('submenu_3_price_1').value;
-  obj1['items'].push(sub_obj);
+  obj3['items'].push(sub_obj);
   var sub_obj={};
   sub_obj['name']=document.getElementById('submenu_3_item_2').value;
   sub_obj['price']=document.getElementById('submenu_3_price_2').value;
-  obj1['items'].push(sub_obj);
+  obj3['items'].push(sub_obj);
   var sub_obj={};
   sub_obj['name']=document.getElementById('submenu_3_item_3').value;
   sub_obj['price']=document.getElementById('submenu_3_price_3').value;
-  obj1['items'].push(sub_obj);
+  obj3['items'].push(sub_obj);
   menu.push(obj3);
 
   obj['Menu']=menu;
