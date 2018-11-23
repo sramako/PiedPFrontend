@@ -25,11 +25,12 @@
 			//Type code here
       $('#Loginform').ajaxForm({
             type: "POST",
+            contentType: "application/x-www-form-urlencoded",
             url : "http://localhost:5000/login",
-            success : function (response) {
+            success : function (response){
                 alert("The server says: " + response);
             }
-      });
+    });
 		</script>
 	</head>
 	<body>
