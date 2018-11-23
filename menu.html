@@ -261,29 +261,10 @@
         <div>
             <br/>
             <h3>Menu</h3>
-            <!--Navbar-->
-            <div class="container">
-            <div class="panel panel-primary" id="main">
-                    <div class="panel-heading" id ="cat">hi</div>
-                    <div class="panel-body" id="catcont">heelo</div>
-            </div>
-              
+               <div id="cat"> </div>
+               <div id="table" class="table-responsive"></div>
+
         <script>
-        //         angular.module("notesApp",[]).controller("MainCtrl",function($scope){
-        //         $scope.restaurant = getName();
-        //         // console.log("in menu_rest"+$scope.restaurant);
-        //         name=getName();
-        //         temp = getCategory(name);
-        //         temp_new=temp.substr(1).slice(0,-1);
-        //         temp_new = temp_new.split('"').join('');
-        //         var array = temp_new.split(",").map(String);
-        //         //temp=list(temp);
-        //         //.log(temp);
-        //         $scope.cat=array;
-        //         // console.log("in menu"+$scope.cat);  
-        //         $scope.menu = getMenu(name); 
-        //         // $scope.catcontent = getCategoryContent(name,temp);
-        // });
         name=getName();
         console.log("name"+name);
         temp = getCategory(name);
@@ -291,21 +272,148 @@
         temp_new = temp_new.split('"').join('');
         var array = temp_new.split(",").map(String);
         console.log("in cat"+" "+array.length);
-        main= document.getElementById("main");
-        for(i=0;i<array.length;i++)
-        {
-            var a=document.createElement("div");
-            a.setAttribute("class","panel-heading");
-            a.setAttribute("id",cat+i);
-            a.innerHTML=array[i];
-            main.append(a);
-            con = getCategoryContent(name,array[0]);
-            var a=document.createElement("div");
-            a.setAttribute("class","panel-body");
-            a.setAttribute("id",catcont+i);
-            a.innerHTML=con;
-            main.append(a);    
-        }
+        
+            
+        con = getCategoryContent(name,array[0]);
+        temp_new=con.substr(1).slice(0,-1);
+        temp_new = temp_new.split('"').join('');
+        var array2 = temp_new.split(",").map(String);
+        console.log(array2[0].split(":")[0]);
+        
+
+
+        // cat = document.getElementById("1");
+        // cat.innerHTML = array[0];
+        
+        // var x = document.getElementById("tbl").rows[0].cells;
+
+        // x[0].innerHTML=array2[0].split(":")[0];
+
+
+            var tbl = document.createElement("table");
+            tbl.style.width = '100%';
+            tbl.style.cellpadding="10"
+            tbl.setAttribute('class', 'table');
+            var tbdy = document.createElement('tbody');
+
+            var th1 = document.createElement('th');
+            th1.setAttribute('style', 'text-align:center');
+            // var th2 = document.createElement('th');
+            // th2.setAttribute('style', 'text-align:center');
+            var th3 = document.createElement('th');
+            th3.setAttribute('style', 'text-align:center');
+            var th4 = document.createElement('th');
+            th4.setAttribute('style', 'text-align:center');
+
+            
+            th1.appendChild(document.createTextNode("Item"));
+            th1.setAttribute('colSpan', '2');
+            th1.setAttribute('style', 'text-align:center');
+            th3.appendChild(document.createTextNode("Price"));
+            th4.appendChild(document.createTextNode("Order"));
+            th4.setAttribute('style', 'right:0');
+            tbdy.appendChild(th1);
+            // tbdy.appendChild(th2);
+            tbdy.appendChild(th3);
+            tbdy.appendChild(th4);
+            for (var p = 0; p < array.length; p++) {
+                        var tr = document.createElement('tr');
+                        var td1 = document.createElement('td');
+                        td1.setAttribute('style', 'text-align:left');
+                        td1.setAttribute('style', 'background-color: #dff0d8');
+                        td1.setAttribute('colSpan', '4');
+                        td1.appendChild(document.createTextNode(array[p]));
+                        tr.appendChild(td1);
+                        con = getCategoryContent(name,array[p]);
+                        temp_new=con.substr(1).slice(0,-1);
+                        temp_new = temp_new.split('"').join('');
+                        var array2 = temp_new.split(",").map(String);
+                        tbdy.appendChild(tr);
+                        for(j=0;j<array2.length;j++)
+                        {
+                            item=array2[j].split(":")[0];
+                            console.log(item)
+                            price=array2[j].split(":")[1];
+                            console.log(price)
+                            var tr = document.createElement('tr');
+                            var td2 = document.createElement('td');
+                            td2.setAttribute('colSpan', '2');
+                            td2.setAttribute('style', 'text-align:center');
+                            var td3 = document.createElement('td');
+                            td3.setAttribute('style', 'text-align:center');
+                            
+                            var td4 = document.createElement('input');
+                            td4.setAttribute('type', 'button');
+                            td4.setAttribute('value', 'Order Now!!');
+                            td4.setAttribute('class',"btn btn-success");
+                            td4.setAttribute('style', 'float:right');
+                            td4.setAttribute('style', 'position:absolute');
+                            
+                            // td4.setAttribute('colSpan', '2');
+
+                            td2.appendChild(document.createTextNode(item));
+                            td3.appendChild(document.createTextNode(price));
+                            td4.appendChild(document.createTextNode("Order Now!!"));
+
+                            tr.appendChild(td2);
+                            tr.appendChild(td3);
+                            tr.appendChild(td4);
+                            tbdy.appendChild(tr);
+                        }
+            }
+                    tbl.appendChild(tbdy);
+                    
+                    document.getElementById("table").appendChild(tbl)
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // item = document.getElementById("item");
+        // price = document.getElementById("price");
+        console.log(array2[0].split(":")[0])
+        // $('#item1').innerhtml=(array2[0].split(":")[0])  
+        // for(i=0;i<array.length;i++)
+        // {
+        //     var div
+        // }
+
+        // for(i=0;i<array.length)
+        // second_div=document.getElementById("catcont");
+        // second_div.innerHTML=array2;
+        // for(i=1;i<array.length;i++)
+        // {
+        //     var a=document.createElement("div");
+        //     a.setAttribute("class","panel-heading");
+        //     a.setAttribute("id",cat+i);
+        //     a.innerHTML=array[i];
+        //     main.append(a);
+        //     con = getCategoryContent(name,array[0]);
+        //     var a=document.createElement("div");
+        //     a.setAttribute("class","panel-body");
+        //     a.setAttribute("id",catcont+i);
+        //     a.innerHTML=con;
+        //     main.append(a);    
+        // }
         
 
             </script>
