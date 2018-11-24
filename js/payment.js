@@ -26,7 +26,7 @@ success = function() {
 	var success="<div class='check_mark'><div class='sa-icon sa-success animate'><span class='sa-line sa-tip animateSuccessTip'></span><span class='sa-line sa-long animateSuccessLong'></span><div class='sa-placeholder'></div><div class='sa-fix'></div></div></div>"
 	$(".modal-body").empty();
 	$(".modal-body").append(success);
-	$(".modal-footer").append("<button type='button' class='btn btn-danger btn-lg' id='done' onclick=>Go to Order</button>")
+	$(".modal-footer").append("<button type='button' class='btn btn-danger btn-lg' id='done' onclick='window.location.href=\'mapbox.html\''>Go to Order</button>")
 	$(".modal-footer").css('padding-top','1px');
 	var cart = JSON.parse(localStorage.getItem('cart'));
 	var order = cart;
