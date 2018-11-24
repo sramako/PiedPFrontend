@@ -32,6 +32,24 @@ function getCategory(name) {
         return ret["cat"];
 };
 
+function getSearch(query)
+{
+    ret=new Object();
+    $.ajax({
+        url : "https://piedp.herokuapp.com/search",
+        data :{
+            "query": query
+        },
+        datatype: 'json',
+        async: false,
+        success:function(data){
+
+            // console.log("in getcat"+ JSON.stringify(data))
+            ret["q"]=data;
+        }});
+        return ret["q"];
+}
+
 function getMenu(name) {
     ret= new Object();
     $.ajax({
