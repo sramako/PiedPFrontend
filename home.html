@@ -84,7 +84,7 @@
 							function codeAddress(){
 							$.ajax({
 									type: "GET",
-									url: "http://0.0.0.0:5000/get_recommendation/"+getCookie('user'),
+									url: "https://piedp.herokuapp.com/get_recommendation/"+getCookie('user'),
 									complete:function(e){
 										var res = e.responseText;
 										document.getElementById("result").innerHTML = "We recommend "+res+" to you Mr/Mrs "+  getCookie('user');
@@ -98,7 +98,7 @@
 								restaurants = ['KFC','Taj']
 								for(var restaurant in restaurants){
 												var img = new Image();
-												img.src = "http://0.0.0.0:7000/images/"+ restaurants[restaurant] +".jpeg";
+												img.src = "https://sramako.github.io/PiedPFrontend/images/"+ restaurants[restaurant] +".jpeg";
 												img.class="d-block w-100";
 												img.alt=restaurant;
 												var di = document.createElement("div");
@@ -150,6 +150,11 @@
 					<li class="nav-item">
 		        <a class="nav-link" href="#" id="here">
 		          Welcome
+		        </a>
+		      </li>
+					<li class="nav-item">
+		        <a class="nav-link" href="https://https://sramako.github.io/PiedPFrontend/login.html">
+		          Log In
 		        </a>
 		      </li>
 		    </ul>
