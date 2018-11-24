@@ -98,19 +98,19 @@
 										var h = document.getElementById("here");
 										h.text = "Welcome  " + getCookie('user');
 								}
-								restaurants = ['KFC','Taj','res1','res2','res3','res4','res5']
-								for(var restaurant in restaurants){
-												var img = new Image();
-												img.src = "https://sramako.github.io/PiedPFrontend/images/"+ restaurants[restaurant] +".jpeg";
-												img.class="d-block w-100";
-												img.alt=restaurant;
-												var di = document.createElement("div");
-												di.class="carousel-item";
-												img.addEventListener("load", function(){
-														di.appendChild(this);
-														document.getElementById("restaurants").appendChild(di);
-												});
-								}
+								// restaurants = ['KFC','Taj','res1','res2','res3','res4','res5']
+								// for(var restaurant in restaurants){
+								// 				var img = new Image();
+								// 				img.src = "https://sramako.github.io/PiedPFrontend/images/"+ restaurants[restaurant] +".jpeg";
+								// 				img.class="d-block w-100";
+								// 				img.alt=restaurant;
+								// 				var di = document.createElement("div");
+								// 				di.class="carousel-item";
+								// 				img.addEventListener("load", function(){
+								// 						di.appendChild(this);
+								// 						document.getElementById("restaurants").appendChild(di);
+								// 				});
+								// }
 							}
 							window.onload = codeAddress;
 		</script>
