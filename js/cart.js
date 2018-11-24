@@ -38,7 +38,12 @@ cartTotal = function() {
 
 getName = function() {
 	var cart = JSON.parse(localStorage.getItem('cart'));
-	return cart["name"];
+	if (cart!=null) {
+		return cart["name"];
+	}
+	else {
+		window.location.href="home.html";
+	}
 }
 
 setName = function(name) {
@@ -55,6 +60,10 @@ setName = function(name) {
 createUI = function() {
 	$("#cart").empty();
 	var cart = JSON.parse(localStorage.getItem('cart'));
+	if (cart==null) {
+		swal("Your cart is empty.")
+		window.location.href="menu.html"
+	}
 	items = Object.keys(cart)
 	var arrayLength = items.length;
 	for (var i = 0; i < arrayLength; i++) {
@@ -169,7 +178,12 @@ cartSize = function() {
 	var cart = JSON.parse(localStorage.getItem('cart'));
 	// console.log(cart);
 	// console.log(Object.keys(cart).length);
-	return Object.keys(cart).length-1;
+	if (cart==null) {
+		return 0
+	}
+	else {
+		return Object.keys(cart).length-1;
+	}
 }
 
 setInterval(badge,1000);
