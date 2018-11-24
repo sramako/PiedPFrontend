@@ -236,14 +236,14 @@
 													document.getElementById("myDropdown").classList.toggle("show");
 													div = document.getElementById("cont");
 													window.obj=JSON.parse(window.response);
-												div.innerHTML= Object.keys(window.obj);
+												div.innerHTML= Object.keys(window.obj)[0];
 												window.obj=JSON.parse(window.response);
 												console.log(window.obj);
 												for(i=1;i<Object.keys(window.obj).length;i++){
 														var d=document.createElement("div");
 														d.innerHTML=Object.keys(window.obj)[i];
 														console.log(Object.keys(window.obj)[i]);
-														d.append(div);
+														div.appendChild(d);
 												}
 											}
 
