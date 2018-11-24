@@ -55,7 +55,7 @@
 		        </a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="#">
+		        <a class="nav-link" href="cart.html">
 		          <i class="fa fa-envelope-o">
 		            <span id="cart_badge" class="badge badge-danger">11</span>
 		          </i>
@@ -78,7 +78,7 @@
             <div class="col-xs-6">
 
                 <br/>
-                <h1>KFC</h1>
+                <h1 id="name"><script> o=document.getElementById("name").innerHTML=getName(); </script> </h1>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
                 <span class="fa fa-star checked"></span>
@@ -97,19 +97,19 @@
 
         <script>
         name=getName();
-        console.log("name"+name);
+        // console.log("name"+name);
         temp = getCategory(name);
         temp_new=temp.substr(1).slice(0,-1);
         temp_new = temp_new.split('"').join('');
         var array = temp_new.split(",").map(String);
-        console.log("in cat"+" "+array.length);
+        // console.log("in cat"+" "+array.length);
 
 
         con = getCategoryContent(name,array[0]);
         temp_new=con.substr(1).slice(0,-1);
         temp_new = temp_new.split('"').join('');
         var array2 = temp_new.split(",").map(String);
-        console.log(array2[0].split(":")[0]);
+        // console.log(array2[0].split(":")[0]);
 
             var tbl = document.createElement("table");
             tbl.style.width = '100%';
@@ -144,6 +144,7 @@
                         td1.setAttribute('style', 'background-color: #dff0d8');
                         td1.setAttribute('colSpan', '4');
                         td1.appendChild(document.createTextNode(array[p]));
+                        td1.setAttribute('class', 'badge');
                         tr.appendChild(td1);
                         con = getCategoryContent(name,array[p]);
                         temp_new=con.substr(1).slice(0,-1);
@@ -153,9 +154,9 @@
                         for(j=0;j<array2.length;j++)
                         {
                             item=array2[j].split(":")[0];
-                            console.log(item)
+                            // console.log(item)
                             price=array2[j].split(":")[1];
-                            console.log(price)
+                            // console.log(price)
                             var tr = document.createElement('tr');
                             var td2 = document.createElement('td');
                             td2.setAttribute('colSpan', '2');

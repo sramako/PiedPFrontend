@@ -7,7 +7,7 @@ function getRestaurants() {
         // datatype: 'json',
         async: false,
         success: function(data){
-            console.log("in rest"+JSON.stringify(data));
+            // console.log("in rest"+JSON.stringify(data));
             ret["data"]=JSON.stringify(data);
             // return JSON.stringify(data);
         }});
@@ -26,7 +26,7 @@ function getCategory(name) {
         async: false,
         success:function(data){
 
-            console.log("in getcat"+ JSON.stringify(data))
+            // console.log("in getcat"+ JSON.stringify(data))
             ret["cat"]=data;
         }});
         return ret["cat"];
@@ -42,7 +42,7 @@ function getMenu(name) {
         async:false,
         datatype: 'json',
         success: function(data){
-            console.log(data)
+            // console.log(data)
             // name=data
             // console.log(name)
             ret["menu"]=data;
@@ -63,11 +63,12 @@ function getCategoryContent(name,category) {
         datatype: 'json',
         async: false,
         success: function(data){
-            console.log(data)
+            // console.log(data)
             // name=data
             // console.log(name)
             ret["content"]=data;
-            console.log(data);
+            // console.log(data);
+
         }});
         return ret["content"];
 };
