@@ -82,17 +82,18 @@
 
 		<script type="text/javascript">
 			function go(){
-				window.location.href="https://sramako.github.io/PiedPFrontend/menu.html";
+				setName("KFC")
+				window.location.href="menu.html";
 			}
-							function codeAddress(){
 							$.ajax({
-									type: "GET",
-									url: "https://piedp.herokuapp.com/get_recommendation/"+getCookie('user'),
-									complete:function(e){
-										var res = e.responseText;
-										document.getElementById("result").innerHTML = "We recommend "+res+" to you Mr/Mrs "+  getCookie('user');
-									}
+								type: "GET",
+								url: "https://piedp.herokuapp.com/get_recommendation/"+getCookie('user'),
+								complete:function(e){
+									var res = e.responseText;
+									document.getElementById("result").innerHTML = "We recommend "+res+" to you Mr/Mrs "+  getCookie('user');
+								}
 							});
+							function codeAddress(){
 								console.log(getCookie('user'))
 								if(getCookie('user')!='null'){
 										var h = document.getElementById("here");
@@ -186,7 +187,7 @@
 		<!-- Navbar End -->
 
 		<!-- courousel for "recommended to you" -->
-		    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:300px">
 		        <ol class="carousel-indicators">
 		          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 		          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -195,15 +196,15 @@
 		        <br>
 		        <h1> Recommended to you </h1>
 		        <h2 id="result"> </h2>
-		        <div class="carousel-inner" style="height:800px;width=100px" onclick="go()">
+		        <div class="carousel-inner" style="height:300px;width=100px" onclick="go()">
 		          <div class="carousel-item active">
 		            <img class="d-block w-100" src="https://sramako.github.io/PiedPFrontend/images/Taj.jpeg" alt="First slide" data-holder-rendered="true" >
 		          </div>
-		          <div class="carousel-item" style="height:800px;width=100px">
+		          <div class="carousel-item" style="height:300px;width=100px">
 		            <img class="d-block w-100" src="https://sramako.github.io/PiedPFrontend/images/res1.jpeg" alt="Third slide">
 		          </div>
-							<div class="carousel-item" style="height:800px;width=100px">
-		            <img class="d-block w-100" src="https://sramako.github.io/PiedPFrontend/images/res2.jpeg" alt="Third slide">
+							<div class="carousel-item" style="height:300px;width=100px">
+		            <img class="d-block w-100"  src="https://sramako.github.io/PiedPFrontend/images/res2.jpeg" alt="Third slide">
 		          </div>
 							<div class="carousel-item" style="height:800px;width=100px">
 		            <img class="d-block w-100" src="https://sramako.github.io/PiedPFrontend/images/res3.jpeg" alt="Third slide">

@@ -41,9 +41,9 @@ getName = function() {
 	if (cart!=null) {
 		return cart["name"];
 	}
-	else {
-		window.location.href="home.html";
-	}
+	// else {
+	// 	window.location.href="home.html";
+	// }
 }
 
 setName = function(name) {

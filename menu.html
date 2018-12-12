@@ -40,19 +40,11 @@
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 		      <li class="nav-item active">
-		        <a class="nav-link" href="#">
+		        <a class="nav-link" href="home.html">
 		          <i class="fa fa-home"></i>
 		          Home
 		          <span class="sr-only">(current)</span>
 		          </a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">
-		          <i class="fa fa-envelope-o">
-		            <span class="badge badge-danger">11</span>
-		          </i>
-		          Messages
-		        </a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="cart.html">
@@ -73,7 +65,7 @@
 		<!-- Navbar End -->
         <div class="row" style="border:none; background:white; height:210px;">
             <div class="col-xs-6">
-                <img src="images/KFC.jpeg" style="height:250px; margin-left:30px;" />
+                <img src="images/KFC.jpeg" style="height:250px; margin-left:30px;padding-top:15px;padding-right:80px" />
             </div>
             <div class="col-xs-6">
 
@@ -91,9 +83,9 @@
         <br/>
         <div>
             <br/>
-            <h3>Menu</h3>
-               <div id="cat"> </div>
-               <div id="table" class="table-responsive"></div>
+            <h3 style="padding-left:100px;">Menu</h3>
+               <div id="cat" style="padding-left:0px;width:90%"> </div>
+               <div id="table" class="table-responsive" style="padding-left:100px;width:90%"></div>
 
         <script>
         name=getName();
@@ -168,7 +160,7 @@
                             td4.setAttribute('type', 'button');
                             td4.setAttribute('id', item);
                             td4.setAttribute('onclick', 'f(event)');
-                            td4.setAttribute('value', 'Order Now!!');
+                            td4.setAttribute('value', '+');
                             td4.setAttribute('class',"btn btn-success");
                             td4.setAttribute('style', 'float:right');
                             td4.setAttribute('style', 'position:absolute');
@@ -177,7 +169,7 @@
 
                             td2.appendChild(document.createTextNode(item));
                             td3.appendChild(document.createTextNode(price));
-                            td4.appendChild(document.createTextNode("Order Now!!"));
+                            td4.appendChild(document.createTextNode("+"));
 
                             tr.appendChild(td2);
                             tr.appendChild(td3);
@@ -186,12 +178,21 @@
                         }
             }
                     tbl.appendChild(tbdy);
-                    
+
                     document.getElementById("table").appendChild(tbl);
                     function f(event)
                     {
                         item=event.target.id;
-                        addToCart(name,item);
+						if($('#'+event.target.id).val()=='+') {
+                        	addToCart(name,item);
+							$('#'+event.target.id).val(' - ');
+							$('#'+event.target.id).css("background-color","darkred");
+						}
+						else {
+							removeFromCart(item);
+							$('#'+event.target.id).val('+');
+							$('#'+event.target.id).css("background-color","teal");
+						}
                     }
             </script>
         </div>
